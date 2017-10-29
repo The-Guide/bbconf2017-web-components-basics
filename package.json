@@ -1,0 +1,24 @@
+{
+  "name": "bbconf2017-web-components-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean -s && mkdir dist",
+    "build:vulcanize": "vulcanize random-greeter.html --inline-script --inline-css | crisper -h dist/random-greeter.html -j dist/random-greeter.js",
+    "build": "npm run build:vulcanize && babel --presets es2015 dist/random-greeter.js --out-file dist/random-greeter.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "crisper": "^2.1.1",
+    "rimraf": "^2.6.2",
+    "vulcanize": "^1.16.0"
+  },
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^1.0.17"
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Web Component Basics</title>
+
+        <script src="node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+        <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+        <style>
+            h1 {
+                color: #ff6600 !important;
+            }
+
+            random-greeter {
+                --var-bg-color: navy;
+                --var-color: green;
+
+                --greeter-styles: {
+                    font-family: "Bauhaus 93";
+                    font-size: 40px;
+                    border: dotted 5px yellow;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <random-greeter class="light"></random-greeter>
+        <random-greeter class="dark"></random-greeter>
+        <random-greeter>
+            <marquee behavior="alternate" direction="right" slot="top">#BBConf rulz!!!</marquee>
+            <ul>
+                <li>Something</li>
+                <li>More something</li>
+                <li>About</li>
+            </ul>
+        </random-greeter>
+
+        <script>
+            window.addEventListener('WebComponentsReady', function () {
+                var randomGreeterImport = document.createElement('link');
+                randomGreeterImport.rel = 'import';
+                randomGreeterImport.href = 'dist/random-greeter.html';
+                document.head.appendChild(randomGreeterImport);
+            });
+        </script>
+    </body>
+</html>
